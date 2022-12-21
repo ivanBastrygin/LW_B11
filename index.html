@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+
+</head>
+<body>
+
+<input type="text" id="id1" placeholder="P">
+<br>
+<input type="text" id="id2" placeholder="X">
+<br>
+<input type="text" id="id3" placeholder="M">
+<br>
+<input type="text" id="id4" placeholder="K">
+<br>
+<button onclick="code1()">Зашифровать</button>
+<br>
+<input type="text" id="id5" placeholder="P">
+<br>
+<input type="text" id="id6" placeholder="X">
+<br>
+<input type="text" id="id7" placeholder="A">
+<br>
+<input type="text" id="id8" placeholder="B">
+<br>
+<button onclick="code2()">Расшифровать</button>
+<script type="text/javascript">
+function code1(){
+var p = document.getElementById("id1").value
+var x = document.getElementById("id2").value
+var m = document.getElementById("id3").value
+var k = document.getElementById("id4").value
+
+var g;
+for(i=2;i<p;i++){
+if((i**(p-1))%p==1){
+g = i;
+alert(g);
+break;
+}
+}
+
+var y = (g**x)%p
+alert(y);
+var a = (g**k)%p
+alert(a);
+var b = ((y**k)*m)%p;
+alert(b);
+alert("зашифрованние сообщение:"+a+","+b)
+}
+function code2(){
+var p = document.getElementById("id5").value
+var x = document.getElementById("id6").value
+var a = document.getElementById("id7").value
+var b = document.getElementById("id8").value
+
+
+var m = (b * (a**(p-1-x)))%p
+alert("расшифрованное сообщение m:"+m)
+}
+
+
+</script>
+</body>
+</html>
